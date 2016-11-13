@@ -56,6 +56,7 @@ class BossBarAPI extends PluginBase implements Listener{
 		$this->getServer()->broadcastPacket($this->getServer()->getOnlinePlayers(), $upk);
 		
 		$npk = new SetEntityDataPacket(); // change name of fake wither -> bar text
+        $npk->metadata = [Entity::DATA_NAMETAG => [Entity::DATA_TYPE_STRING, "$message"]];
 		$npk->eid = $eid;
 		$this->getServer()->broadcastPacket($this->getServer()->getOnlinePlayers(), $npk);
 		
