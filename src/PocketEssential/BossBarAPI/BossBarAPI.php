@@ -45,7 +45,7 @@ class Main extends PluginBase implements Listener{
 		$this->getServer()->getScheduler()->scheduleRepeatingTask(new SendTask($this), 20);
 	}
 
-	public function sendBossMessage(Player $player, $message){
+	public function sendBossBar(Player $player, $message){
 		if(count($this->getServer()->getOnlinePlayers()) > 0) $this->i < 100?$this->i++:$this->i = 0;
 		else return;
 		$eid = 1000; /* $this->eid[$player->getName()]; */ // TODO: fix
