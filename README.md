@@ -20,21 +20,12 @@ use PocketEssential\BossBarAPI\BossBarAPI;
 ```php
 
 /*
- Player should an instance of PLAYER, and also the player that you
- Want the BossBar to be sent to, You can also foreach all the online
- players
+ Player should an instance of a PLAYER, Just foreach loop all the online players; etc
  */
 
 $message = "This is a BossBar message";
-$BossBarAPI->sendBossBar($player, $message);
+$BossBarAPI->sendBossBar(PLayer $player, $message);
 
-/*
-  Sending it to all the players
-*/
 
-foeach($this->getServer()->getOnlinePlayers() as $player){
-
-$message = "This is a BossBar message";
- $BossBarAPI->sendBossBar($player, $message);
   }
 ```
