@@ -19,12 +19,17 @@ use PocketEssential\BossBarAPI\BossBarAPI;
 
 ```php
 
+// Set the barMessage first!
+
+$message = "This is a BossBar message";
+
+$BossBarAPI->setBarMessage($message);
+
 /*
  Player should an instance of a PLAYER, Just foreach loop all the online players; etc
  */
 
-$message = "This is a BossBar message";
-$BossBarAPI->sendBossBar(Player $player, $message);
+$BossBarAPI->sendBossBar(Player $player);
 
 
   }

@@ -36,6 +36,7 @@ use pocketmine\utils\UUID;
 
 class BossBarAPI extends PluginBase implements Listener{
 	public $eid = [], $i = 0;
+    public $barMessage = "This plugin is using BossBar";
 
 	public function onEnable(){
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
@@ -44,8 +45,16 @@ class BossBarAPI extends PluginBase implements Listener{
 		$this->getServer()->getNetwork()->registerPacket(SetEntityDataPacket::NETWORK_ID, SetEntityDataPacket::class);
 		$this->getServer()->getScheduler()->scheduleRepeatingTask(new SendTask($this), 20);
 	}
+     public function sendBossBar(Player $player){
+         $fakeboss = new FakeWither();
+         $fakeboss->init();
+         $fakeboss->spawnTo($player);
+     }
 
-	public function sendBossBar(Player $player, $message){
+     public function setBarMessage($message){
+         $this->barMessage = $message;
+     }
+	public function BossBarAPI($message){
 		if(count($this->getServer()->getOnlinePlayers()) > 0) $this->i < 100?$this->i++:$this->i = 0;
 		else return;
 		$eid = 1000; /* $this->eid[$player->getName()]; */ // TODO: fix
@@ -56,7 +65,7 @@ class BossBarAPI extends PluginBase implements Listener{
 		$this->getServer()->broadcastPacket($this->getServer()->getOnlinePlayers(), $upk);
 		
 		$npk = new SetEntityDataPacket(); // change name of fake wither -> bar text
-        $npk->metadata = [Entity::DATA_NAMETAG => [Entity::DATA_TYPE_STRING, "$message"]];
+        $npk->metadata = [Entity::DATA_NAMETAG => [Entity::DATA_TYPE_STRING, "$this->barMessage"]];
 		$npk->eid = $eid;
 		$this->getServer()->broadcastPacket($this->getServer()->getOnlinePlayers(), $npk);
 		
@@ -65,8 +74,5 @@ class BossBarAPI extends PluginBase implements Listener{
 		$bpk->eid = $eid;
 		$bpk->state = 0;
         $this->getServer()->broadcastPacket($this->getServer()->getOnlinePlayers(), $bpk);
-        $fakeboss = new FakeWither();
-        $fakeboss->init();
-        $fakeboss->spawnTo($player);
 	}
 }
