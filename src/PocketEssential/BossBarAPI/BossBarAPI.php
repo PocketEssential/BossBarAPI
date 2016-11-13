@@ -34,7 +34,7 @@ use pocketmine\network\protocol\SetEntityDataPacket;
 use pocketmine\entity\Entity;
 use pocketmine\utils\UUID;
 
-class Main extends PluginBase implements Listener{
+class BossBarAPI extends PluginBase implements Listener{
 	public $eid = [], $i = 0;
 
 	public function onEnable(){
