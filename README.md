@@ -29,7 +29,7 @@ $BossBarAPI->setBarMessage($message);
  Player should an instance of a PLAYER, Just foreach loop all the online players; etc
  */
 
-$BossBarAPI->sendBossBar(Player $player);
+$BossBarAPI->sendBossBar($player);
 
 
   }

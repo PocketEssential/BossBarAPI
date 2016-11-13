@@ -45,7 +45,7 @@ class BossBarAPI extends PluginBase implements Listener{
 		$this->getServer()->getNetwork()->registerPacket(SetEntityDataPacket::NETWORK_ID, SetEntityDataPacket::class);
 		$this->getServer()->getScheduler()->scheduleRepeatingTask(new SendTask($this), 20);
 	}
-     public function sendBossBar(Player $player){
+     public function sendBossBar($player){
          $fakeboss = new FakeWither();
          $fakeboss->init();
          $fakeboss->spawnTo($player);
