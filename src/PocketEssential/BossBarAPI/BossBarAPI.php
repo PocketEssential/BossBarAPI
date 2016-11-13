@@ -19,7 +19,7 @@
 # Author: The PocketEssential Team
 # Link: https://github.com/PocketEssential
 #
-#|------------------------------------------------- UltraFaction -------------------------------------------------|
+#|------------------------------------------------- BossBarAPI -------------------------------------------------|
 #| - If you want to suggest/contribute something, read our contributing guidelines on our Github Repo (Link Below)|
 #| - If you find an issue, please report it at https://github.com/PocketEssential/UltraFaction/issues             |
 #|----------------------------------------------------------------------------------------------------------------|
