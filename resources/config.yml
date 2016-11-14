@@ -1,0 +1,44 @@
+#
+#____                ____                    _____ _____
+#|  _ \              |  _ \             /\   |  __ \_   _|
+# | |_) | ___  ___ ___| |_) | __ _ _ __ /  \  | |__) || |
+# |  _ < / _ \/ __/ __|  _ < / _` | '__/ /\ \ |  ___/ | |
+# | |_) | (_) \__ \__ \ |_) | (_| | | / ____ \| |    _| |_
+# |____/ \___/|___/___/____/ \__,_|_|/_/    \_\_|   |_____|
+#
+#
+# Made by PocketEssential Copyright 2016 ©
+#
+# This is a public software, you cannot redistribute it a and/or modify any way
+# unless otherwise given permission to do so.
+#
+# Author: The PocketEssential Team
+# Link: https://github.com/PocketEssential
+#
+#|------------------------------------------------ UltraFaction ------------------------------------------------|
+#| - If you made a mistake in the config, either edit it, or delete the config file, then restart your server!  |
+#| - If the issue persists, report it at https://github.com/PocketEssential/UltraFaction/issues                 |
+#|--------------------------------------------------------------------------------------------------------------|
+
+
+enabled: true
+
+# Types, Normal (Normal looking): Animated, animated BossBar
+
+type: Normal
+BossBar: "This plugin is using BossBarAPI by 'PocketEssential'"
+
+# Ignore, if not using animated
+
+Animations:
+ - 'This'
+ - 'server'
+ - 'is'
+ - 'using'
+ - 'BossBar'
+ - 'by'
+ - 'PocketEssential'
+
+
+
+

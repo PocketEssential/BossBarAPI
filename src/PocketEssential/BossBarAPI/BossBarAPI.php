@@ -33,31 +33,31 @@ use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\network\protocol\SetEntityDataPacket;
 use pocketmine\entity\Entity;
 use pocketmine\utils\UUID;
+use pocketmine\utils\Config;
 
 class BossBarAPI extends PluginBase implements Listener{
     public $eid = [], $i = 0;
-    public $barMessage = "This plugin is using BossBar";
     public $npk = [];
     public function onEnable(){
+        @mkdir($this->getDataFolder());
+        $this->saveDefaultConfig();
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
         $this->getServer()->getNetwork()->registerPacket(BossEventPacket::NETWORK_ID, BossEventPacket::class);
         $this->getServer()->getNetwork()->registerPacket(UpdateAttributesPacket::NETWORK_ID, UpdateAttributesPacket::class);
         $this->getServer()->getNetwork()->registerPacket(SetEntityDataPacket::NETWORK_ID, SetEntityDataPacket::class);
         $this->getServer()->getScheduler()->scheduleRepeatingTask(new SendTask($this), 20);
     }
-    public function sendBossBar($player){
+    public function join(PlayerJoinEvent $event){
+        $player = $event->getPlayer();
         $fakeboss = new FakeWither();
         $fakeboss->init();
-        if($player == null){
-            $player = $this->npk;
-        }
         $fakeboss->spawnTo($player);
     }
 
     public function setBarMessage($message){
         $this->barMessage = $message;
     }
-    public function BossBarAPI($message){
+    public function BossBarAPI(){
         if(count($this->getServer()->getOnlinePlayers()) > 0) $this->i < 100?$this->i++:$this->i = 0;
         else return;
         $eid = 1000; /* $this->eid[$player->getName()]; */ // TODO: fix
@@ -68,12 +68,10 @@ class BossBarAPI extends PluginBase implements Listener{
         $this->getServer()->broadcastPacket($this->getServer()->getOnlinePlayers(), $upk);
 
         $npk = new SetEntityDataPacket(); // change name of fake wither -> bar text
-        $npk->metadata = [Entity::DATA_NAMETAG => [Entity::DATA_TYPE_STRING, "$this->barMessage"]];
+        $this->barMessage = $this->getConfig()->get("BossBar");
+        $npk->metadata = [Entity::DATA_NAMETAG => [Entity::DATA_TYPE_STRING, $this->barMessage]];
         $npk->eid = $eid;
         $this->getServer()->broadcastPacket($this->getServer()->getOnlinePlayers(), $npk);
-        if($this->npk == []){
-            $this->npk = $npk;
-        }
         $state = 0;
         $bpk = new BossEventPacket(); // TODO: check if can be removed
         $bpk->eid = $eid;

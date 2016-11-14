@@ -14,8 +14,7 @@ class SendTask extends PluginTask{
     }
 
     public function onRun($currentTick){
-        $message = $this->plugin->barMessage;
-        $this->getOwner()->BossBarAPI($message);
+        $this->getOwner()->BossBarAPI();
     }
 
     public function cancel(){
