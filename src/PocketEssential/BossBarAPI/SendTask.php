@@ -8,17 +8,18 @@ use pocketmine\Player;
 
 class SendTask extends PluginTask{
 
-	public function __construct(Plugin $owner){
-		parent::__construct($owner);
-		$this->plugin = $owner;
-	}
+    public function __construct(Plugin $owner){
+        parent::__construct($owner);
+        $this->plugin = $owner;
+    }
 
-	public function onRun($currentTick){
-		$this->getOwner()->sendBossBar();
-	}
+    public function onRun($currentTick){
+        $message = $this->plugin->barMessage;
+        $this->getOwner()->BossBarAPI($message);
+    }
 
-	public function cancel(){
-		$this->getHandler()->cancel();
-	}
+    public function cancel(){
+        $this->getHandler()->cancel();
+    }
 }
 ?>
