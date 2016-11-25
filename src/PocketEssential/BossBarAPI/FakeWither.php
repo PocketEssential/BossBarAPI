@@ -21,7 +21,7 @@ class FakeWither extends Location{
 		$pk->eid = $this->eid;
 		$pk->type = $this->entityId;
 		$pk->x = $player->x;
-		$pk->y = $player->y;
+		$pk->y = $player->y-20;
 		$pk->z = $player->z;
 		$pk->yaw = $player->yaw;
 		$pk->pitch = $player->pitch;
