@@ -8,11 +8,11 @@ API to send BossBar Titles / Messages
 
 ```php
 // First you"ll need this
-$BossBarAPI = $this->getServer()->getPluginManager()->getPlugin("BossBarAPI");
+use PocketEssential\BossBarAPI\BossBarAPI;
 
 // You can also do:
 
-use PocketEssential\BossBarAPI\BossBarAPI;
+$BossBarAPI = BossBarAPI::getInstance();
 ```
 
 #### Sending  BossBars to players
