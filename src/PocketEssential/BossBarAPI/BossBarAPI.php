@@ -36,6 +36,17 @@ use pocketmine\utils\UUID;
 use pocketmine\utils\Config;
 
 class BossBarAPI extends PluginBase implements Listener{
+    
+    public static $instance = null;
+    
+    /**
+     * @return BossBarAPI
+     */
+    public static function getInstance()
+    {
+        return self::$instance;
+    }
+    
     public $eid = [], $i = 0;
     public $npk = [];
     public function onEnable(){
