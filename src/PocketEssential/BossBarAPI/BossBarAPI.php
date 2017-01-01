@@ -95,7 +95,7 @@ class BossBarAPI extends PluginBase implements Listener{
 		$npk->x = $player->getX();
 		$npk->y = $player->getY() - 5;
 		$npk->z = $player->getZ();
-		$player->dataPacket($pk);
+		$player->dataPacket($npk);
 		$this->barMessage = $this->getConfig()->get("BossBar");
         $npk->metadata = [Entity::DATA_NAMETAG => [Entity::DATA_TYPE_STRING, $this->barMessage]];
 	}
