@@ -88,5 +88,16 @@ class BossBarAPI extends PluginBase implements Listener{
         $bpk->eid = $eid;
         $bpk->state = 0;
         $this->getServer()->broadcastPacket($this->getServer()->getOnlinePlayers(), $bpk);
+        
+        public function moveMob(Player $player){
+		$npk = new MovePlayerPacket();
+		$npk->eid = 11000;
+		$npk->x = $player->getX();
+		$npk->y = $player->getY() - 5;
+		$npk->z = $player->getZ();
+		$player->dataPacket($npk);
+		$this->barMessage = $this->getConfig()->get("BossBar");
+        $npk->metadata = [Entity::DATA_NAMETAG => [Entity::DATA_TYPE_STRING, $this->barMessage]];
+	}
     }
 }
