@@ -45,3 +45,6 @@ $BossBarAPI->sendBossBar($player);
         You can also try a simple plugin made by us
         Using our API, You can get (take a look at
         it over) [here](https://github.com/PocketEssential/BossBar)
+        
+# Builds
+[![Poggit-CI](https://poggit.pmmp.io/ci.badge/PocketEssential/BossBarAPI/BossBarAPI)](https://poggit.pmmp.io/ci/PocketEssential/BossBarAPI/BossBarAPI)
